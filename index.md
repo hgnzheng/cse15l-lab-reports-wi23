@@ -28,10 +28,23 @@ Cool. You have finished the very first step of this lab by successfully installi
 
 # Remotely Connecting
 
+## Step 1: Set up CSE 15L course specific account
+If you have completed any computer sciences classes with lab components at UC San Diego, you should probably know how to set up your course specific account. If that's you, please feel free to skip this section and move on to the next section.
 
+If you have never done this before, here are the instructions for you to smoothly set up your CSE 15L course account. It takes some time; please be patient with the whole process.
 
+Firstly, go to UC San Diego Account Loopup website [Link](https://sdacs.ucsd.edu/~icc/index.php) to check your CSE 15L specific account user name. Please input your *Username* and *Student ID, aka PID* to access your account information. Besides the username for your tritonlink login, you should see a section called **Additional Accounts** where you can see a grey button containing your CSE 15L username! The format of the username is simple enough to recognize: "cs15l" (the course name) + "wi23" (the quarter you are taking the course) + "abc" (just some random letters). Click on the button and follow along to reset your password. If you need any further instruction, please click the link [How-to-reset-your-password](https://sdacs.ucsd.edu/~icc/index.php) and follow the more detailed instructions here!
 
+Once you have completed the reset process, wait for about an hour for the new password to become effective. After that, please go to the next steps to remotely connect to a lab computer.
 
+## Step 2 (Windows Only): Git Installation
+If you are using Mac/Linux operation system, you can skip this step and move on to step 3. For Windows users, we have to install *git* before we are able to connect remotely. Please click the link [Git for Windows](https://gitforwindows.org/) to download git. Once you have completed the installation, follow along with the steps detailed on [stack overflow](https://stackoverflow.com/questions/42606837/how-do-i-use-bash-on-windows-from-the-visual-studio-code-integrated-terminal/50527994#50527994) to set your default terminal for *git*.
 
+## Step 3: Remote Connecting
+As of now, Windows, Mac, Linux users are all on the same stage. Please open the terminal in VSCode, or your system built-in terminal.
 
-**this** formatting updates _as I type_
+Type in command **ssh <your CSE 15L username>@ieng6.ucd.edu**. For example, my username is *cse15lwi23ale*, so I input cse15lwi23ale@ieng6@ucsd.edu. Press enter. If you entered the correct command, you will be prompted to enter your password. The password is just the one you reset in the first component of this lab. If you have waited lone enough for your reset password to become effective, you should see a bunch of commands popping up to connect you with a lab computer, as follows:
+![image](command.png).
+
+Some first-time users may have been prompted to answer "Are you sure you want to continue connecting (yes/no/[fingerprint])?" before entering the password. You need to type **yes** and press enter unless your have a specific reason not to do so. After that, you should be successfully connected to the remote lab computer. **Congratulations!**
+
