@@ -61,7 +61,7 @@ Here are some useful commands to try [cse15-week1]:
 * `cat /home/linux/ieng6/cse15lwi23/public/hello.txt`
 * ...
 
-I noticed that the command `cd`, which could mean change directory, is very useful in the sense that it helps user to navigate from one directory to another one. The command `cd ~` enables me to go back to the home directory -- another useful one here. `cp` is used for copying files, which people do often times. Above, I loved how the command `ls` provides information about what is my current directory, so I known the next steps to navigate to my target directory.
+I noticed that the command `cd`, which could mean change directory, is very useful in the sense that it helps user to navigate from one directory to another one. The command `cd ~` enables me to go back to the home directory -- another useful one here. `cp` is used for copying files, which people do often times. Above all, I loved how the command `ls` provides information about what is my current directory, so I known the next steps to navigate to my target directory.
 
 By testing these commands, you should see something like the screenshot below:
 ![screenshot](commands.png)
