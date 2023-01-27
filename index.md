@@ -41,9 +41,9 @@ Once you have completed the reset process, wait for about an hour for the new pa
 If you are using Mac/Linux operation system, you can skip this step and move on to step 3. For Windows users, we have to install *git* before we are able to connect remotely. Please click the link [Git for Windows](https://gitforwindows.org/) to download git. Once you have completed the installation, follow along with the steps detailed on [stack overflow](https://stackoverflow.com/questions/42606837/how-do-i-use-bash-on-windows-from-the-visual-studio-code-integrated-terminal/50527994#50527994) to set your default terminal for *git*.
 
 ## Step 3: Remote Connecting
-As of now, Windows, Mac, Linux users are all on the same stage. Please open the terminal in VSCode, or your system built-in terminal.
+As of now, Windows, Mac, Linux users are all on the same page. Please open the terminal in VSCode, or your system built-in terminal.
 
-Type in command `ssh <your CSE 15L username>@ieng6.ucd.edu`. For example, my username is *cse15lwi23ale*, so I input `cse15lwi23ale@ieng6@ucsd.edu`. Press enter. If you entered the correct command, you will be prompted to enter your password. The password is just the one you reset in the first component of this lab. If you have waited long enough for your reset password to become effective, you should see a bunch of commands popping up to connect you with a lab computer, as follows:
+Type in command `ssh <your CSE 15L username>@ieng6.ucsd.edu`. For example, my username is *cse15lwi23ale*, so I input `ssh cse15lwi23ale@ieng6.ucsd.edu`. Press enter. If you entered the correct command, you will be prompted to enter your password. The password is just the one you reset in the first component of this lab. If you have waited long enough for your reset password to become effective, you should see a bunch of commands popping up to connect you with a lab computer, as follows:
 ![image](command.png)
 
 Some first-time users may have been prompted to answer `Are you sure you want to continue connecting (yes/no/[fingerprint])?` before entering the password. You need to type `yes` and press enter unless your have a specific reason not to do so. After that, you should be successfully connected to the remote lab computer. 
@@ -61,7 +61,7 @@ Here are some useful commands to try [cse15-week1]:
 * `cat /home/linux/ieng6/cse15lwi23/public/hello.txt`
 * ...
 
-I noticed that the command `cd`, which could mean change directory, is very useful in the sense that it helps user to navigate from one directory to another one. The command `cd ~` enables me to go back to the home directory -- another useful one here. `cp` is used for copying files, which people do often times.
+I noticed that the command `cd`, which could mean change directory, is very useful in the sense that it helps user to navigate from one directory to another one. The command `cd ~` enables me to go back to the home directory -- another useful one here. `cp` is used for copying files, which people do often times. Above, I loved how the command `ls` provides information about what is my current directory, so I known the next steps to navigate to my target directory.
 
 By testing these commands, you should see something like the screenshot below:
 ![screenshot](commands.png)
