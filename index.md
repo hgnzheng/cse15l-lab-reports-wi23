@@ -6,7 +6,7 @@ Lab Session: Wednesday 11:00 - 12:50 @EBU3B_B270
 
 # Part 1: Web server: StringServer
 
-```
+```ruby
 import java.io.IOException;
 import java.net.URI;
 import java.lang.StringBuilder;
