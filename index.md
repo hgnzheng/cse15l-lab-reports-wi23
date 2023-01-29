@@ -9,6 +9,7 @@ Welcome to my lab report 2 webpage. In this lab report, I have included the deta
 # Part 1: Web server: StringServer
 
 > My code Implementation
+
 ```ruby
 import java.io.IOException;
 import java.net.URI;
