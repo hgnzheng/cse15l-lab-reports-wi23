@@ -1,6 +1,6 @@
-Name: Hargen Zheng
-PID: A17383701
-Sources: Week 2 Lab 'NumberServer.java', 'Handler.class', ad 'URLHandler.class' files.
+Name: Hargen Zheng\
+PID: A17383701\
+Sources: Week 2 Lab 'NumberServer.java', 'Handler.class', ad 'URLHandler.class' files.\
 Lab Session: Wednesday 11:00 - 12:50 @EBU3B_B270
 
 # Lab Report 2 
