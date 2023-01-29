@@ -1,11 +1,12 @@
 Name: Hargen Zheng
 PID: A17383701
+Sources: Week 2 Lab 'NumberServer.java', 'Handler.class', ad 'URLHandler.class' files.
 Lab Session: Wednesday 11:00 - 12:50 @EBU3B_B270
 
 # Lab Report 2 
-
+> Welcome to my lab report 2 webpage. In this lab report, I have included the details of my implementation to create a simple web server called StringServer; description of bug fixes from the Week 3 lab; and a reflection of what I have learned from previous two weeks of labs. Let's first dive into the first part -- creating a web server from "scratch."
 # Part 1: Web server: StringServer
-
+> My code Implementation
 ```ruby
 import java.io.IOException;
 import java.net.URI;
