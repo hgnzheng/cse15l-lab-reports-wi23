@@ -149,6 +149,8 @@ static void reverseInPlace(int[] arr) {
 We can see that both of our JUnit test pass when bug has been fixed:
 ![image](result.png)
 
+The program intends to reverse the order of Integers in the array. However, the initial code does not store the Integer value at position `arr[i]`, so when we assign it to `arr[arr.length - i - 1]`, we lose the value at `arr[i]` forever. To fixed the bug, I initialized a variable `int temp` to store the values at `arr[i]` for every iteration of the for loop. Then I assign `temp` to `arr[arr.length - i - 1]`, so the values are not lost and we can exchange Integers' positions, as program desires.
+
 # Part 3: Week 2&3 lab reflection
 It was absolutely amazing to learn to run web server on my local computer and update the web server with queries. I played with the code of `NumberServer.java` in Week 2 lab and made my own `SearchEngine.java` after that. In week 3, I played around with some JUnit tests and tried to write my own tests. Though I had some experience writing JUnit tests in CSE 12, I did not think of it from the perspective of failure-inducing inputs and symptoms. I learned how to thoroughly test bugs and recognize symptoms of JUnit tests. I hope to learn more in future labs!
 
