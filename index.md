@@ -1,6 +1,6 @@
 Name: Hargen Zheng\
 PID: A17383701\
-Sources: Week 2 Lab 'NumberServer.java', 'Handler.class', ad 'URLHandler.class' files.\
+Sources: Week 2 Lab `NumberServer.java`, `Handler.class`, ad `URLHandler.class` files.\
 Lab Session: Wednesday 11:00 - 12:50 @EBU3B_B270
 
 # Lab Report 2 
@@ -63,7 +63,7 @@ As we have our code and web server ready, we can now test our server against the
 
 For the first message, I wanted to add I'mHARGEN, which does not have an empty space in between words. Adding this way, we can test the simplest implementation of our code -- to add a string without space(s). When I typed `add-message?s=I'mHARGEN`, we can see that a message pops up, and that message tells us "I'mHARGEN is added! It's now visible." 
 + This is exactly what we wanted because we expect to see a message that says "xx is added! It's now visible," as in our code `return String.format("%s is added! It's now visible", result);`.
-+ Above all, the method 'handleRequest' is called with the URL address that runs in our local machine to check against our path and return specific results as specified in our code. 
++ Above all, the method `handleRequest` is called with the URL address that runs in our local machine to check against our path and return specific results as specified in our code. 
 + Since this is the first time we use the query `add-message`, a StringBuilder object called 'result' is initialized to store the message "I'mHARGEN," which will later be appended to the "str" StringBuilder object.
 
 ![screenshot1](screenshot1-add.png)
@@ -78,7 +78,7 @@ Now we have tested how our code works when we add message without space in betwe
 
 This time, we add the message "This is a lab report for CSE 15L at UC San Diego." The screenshot below shows what we get after entering the command:
 ![screenshot2](screenshot2-add.png)
-+ We have run the method "handleRequest" again with our local URL address.
++ We have run the method `handleRequest` again with our local URL address.
 + It seems we have added successfully! We can see a similar message as our previous example, but with the message substituted by the new one we entered.
 
 Let's now see how the main page of web server changes. Here is a screenshot:
@@ -86,10 +86,75 @@ Let's now see how the main page of web server changes. Here is a screenshot:
 + Yes! We added the message "This is a lab report for CSE 15L at UC San Diego," and the message appears in a separate line for us. All things go as we expect.
 
 Now let's think about which methods have been called and which class fields have changed their values.
-+ Similar to the previous example, we called 'handleRequest,' as its name suggests, to handle the request we have -- adding a message with multiple words separated by empty spaces. 
++ Similar to the previous example, we called `handleRequest`, as its name suggests, to handle the request we have -- adding a message with multiple words separated by empty spaces. 
 + We created a new StringBuilder object to store the message we have. The `.split("=")` stores each single word of our message into separate entries of an array called 'parameter.' Using the for loop to traverse through the array, we append the individual words into our StringBuilder object. At the end, we append the whole message to the instance variable 'str,' which stores all the message(s) we added.
 
 With two examples above and the code, I have showed how my StringServer handle requests to add a new message to the server. Now, let's move on to the second part of the lab report.
 
+# Part 2: ArrayExamples.java bug analysis
+Among three buggy programs in lab 3, I choose to do an analysis of the bugs in `ArrayExamples.java` file.
 
++ A failure-inducing input for the buggy program, as a JUnit test and any associated code (write it as a code block in Markdown)
+
+```ruby
+@Test 
+public void testReverseInPlace2(){
+    int[] input2 = {1, 3, 5};
+    ArrayExamples.reverseInPlace(input2);
+    assertArrayEquals(new int[]{5, 3, 1}, input2);
+}
+```
+
++ An input that doesn’t induce a failure, as a JUnit test and any associated code (write it as a code block in Markdown)
+
+```ruby
+@Test 
+public void testReverseInPlace() {
+    int[] input1 = { 3 };
+    ArrayExamples.reverseInPlace(input1);
+    assertArrayEquals(new int[]{ 3 }, input1);
+}
+```
+
++ The symptom, as the output of running the tests (provide it as a screenshot of running JUnit with at least the two inputs above)
+
+Here is a screenshot of JUnit result with input that doesn't induce a failure:
+![image1](no-bug.png)
+
+Here is another screenshot showing the symptom of the failure inducing input we had previously:
+![image1](buggy.png)
+
++ The bug, as the before-and-after code change required to fix it (as two code blocks in Markdown)
+
+This is our initial code before fixing the bug.
+```ruby
+static void reverseInPlace(int[] arr) {
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = arr[arr.length - i - 1];
+    }
+}
+```
+
+After fixing the bug, our code looks like:
+```ruby
+static void reverseInPlace(int[] arr) {
+    for(int i = 0; i < arr.length / 2; i += 1) {
+      int temp = arr[i];
+      arr[i] = arr[arr.length - i - 1];
+      arr[arr.length - i - 1] = temp;
+    }
+}
+```
+
+We can see that both of our JUnit test pass when bug has been fixed:
+![image](result.png)
+
+# Part 3: Week 2&3 lab reflection
+It was absolutely amazing to learn to run web server on my local computer and update the web server with queries. I played with the code of `NumberServer.java` in Week 2 lab and made my own `SearchEngine.java` after that. In week 3, I played around with some JUnit tests and tried to write my own tests. Though I had some experience writing JUnit tests in CSE 12, I did not think of it from the perspective of failure-inducing inputs and symptoms. I learned how to thoroughly test bugs and recognize symptoms of JUnit tests. I hope to learn more in future labs!
+
+Rise and Grind.\
+Hargen Zheng
+
+---
+This is the end of Lab Report 2.
 
