@@ -43,7 +43,7 @@ If you are using Mac/Linux operation system, you can skip this step and move on 
 ## Step 3: Remote Connecting
 As of now, Windows, Mac, Linux users are all on the same page. Please open the terminal in VSCode, or your system built-in terminal.
 
-Type in command `ssh <your CSE 15L username>@ieng6.ucsd.edu`. For example, my username is *cs15lwi23ale*, so I input `ssh cs15lwi23ale@ieng6.ucsd.edu`. Press enter. If you entered the correct command, you will be prompted to enter your password. The password is just the one you reset in the first component of this lab. If you have waited long enough for your reset password to become effective, you should see a bunch of commands popping up to connect you with a lab computer, as follows:
+Type in command ```ssh <your CSE 15L username>@ieng6.ucsd.edu```. For example, my username is *cs15lwi23ale*, so I input `ssh cs15lwi23ale@ieng6.ucsd.edu`. Press enter. If you entered the correct command, you will be prompted to enter your password. The password is just the one you reset in the first component of this lab. If you have waited long enough for your reset password to become effective, you should see a bunch of commands popping up to connect you with a lab computer, as follows:
 ![image](command.png)
 
 Some first-time users may have been prompted to answer `Are you sure you want to continue connecting (yes/no/[fingerprint])?` before entering the password. You need to type `yes` and press enter unless your have a specific reason not to do so. After that, you should be successfully connected to the remote lab computer. 
