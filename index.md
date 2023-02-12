@@ -25,12 +25,30 @@ to be at `\written_2\non-fiction\OUP\Berk`, so I want to start from there.
 By inspection, there are four `.txt` files in my current working directory -- 
 `CH4.txt`, `ch1.txt`, `ch2.txt`, and `ch7.txt`. Let's try to see how many "Hello"
 we have in `ch1.txt`! I think there will be some counts because it is the 
-starting chapter and perhaps the author wants to say "Hello" as well! Here is 
-my command and the corresponding output:
+starting chapter and perhaps the characters wants to say "Hello" to each other
+as well! Here is my command and the corresponding output:
 ```ruby 
 ❯ grep -c "Hello" ch1.txt
 0
 ```
+
+Unfortunately, the characters do not seem to greet each other with the word
+"Hello" as we wanted, and we obtained an output of zero here. What about the
+other `.txt` files in the directory? Let's try to apply the command to all 
+`.txt` files in the directory and see if even a single line of all `.txt` files
+would contain "Hello".
+```ruby
+❯  grep -c "Hello" *.txt
+CH4.txt:2
+ch1.txt:0
+ch2.txt:0
+ch7.txt:0
+```
+
+Yes! We finally find out that two lines of `CH4.txt` file contains the word 
+"Hello". Maybe it's because characters meet with each other late in the fourth
+chapter. But the count 2 is all we can get as of now. We want to use other
+command-line options to further explore the context in the file.
 
 
 
