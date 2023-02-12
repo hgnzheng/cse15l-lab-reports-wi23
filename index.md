@@ -9,8 +9,32 @@ command-line options for the command `grep`. Each option is followed by two
 examples to demonstrate its use and output. Without further due, let's start
 the lab report!
 
-# Option 1: `-n`
+# Option 1: `-c`
+When dealing with a huge amount of `.txt` files, we may want to know how many
+times a specific pattern -- words, phrases, or even sentences -- appear in our
+files. Therefore, we can do further analysis with our `.txt` file. `grep` has
+`-c` command-line option that enables us to count the number of lines that the 
+pattern appear, which would give us a general sense of how frequent the pattern
+appears in our file(s).
 
++ Example 1. I want to start my lab report with some greetings, so I wanted to 
+know how many lines of my `.txt` files in current working directory contain 
+the word "Hello." I navigated different directories in `\written_2` and happened
+to be at `\written_2\non-fiction\OUP\Berk`, so I want to start from there. 
+
+By inspection, there are four `.txt` files in my current working directory -- 
+`CH4.txt`, `ch1.txt`, `ch2.txt`, and `ch7.txt`. Let's try to see how many "Hello"
+we have in `ch1.txt`! I think there will be some counts because it is the 
+starting chapter and perhaps the author wants to say "Hello" as well! Here is 
+my command and the corresponding output:
+```ruby 
+❯ grep -c "Hello" ch1.txt
+0
+```
+
+
+
+# Option 2: `-n`
 
 ```ruby
 ❯ grep -n "Hello" *.txt
