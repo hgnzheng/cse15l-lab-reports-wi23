@@ -112,7 +112,7 @@ The typical preschool child devotes nearly 13 percent of his or her waking hours
 As with the output, "today" is used twice before the word "Children" and once before the word "parents" in the text.
 
 
-# Option 3: `-n`
+# Option 4: `-n`
 We can use the command options to find the information we want, but it takes some time to check if the word/pattern we want is indeed there. How can we use command-line options to locate the output faster -- to spend less time on and protect our eyes? Well, it seems the option `-n` would be good because it tells us the line number of that matching! We can go directly to the line and see if the word is there, instead of skimming through the whole text and find nothing at the end.
 
 Let's try our first example with the word "Hello" again.
