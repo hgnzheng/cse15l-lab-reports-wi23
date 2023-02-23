@@ -1,143 +1,91 @@
 Name: Hargen Zheng\
 PID: A17383701\
-Sources: [geeksforgeeks](https://www.geeksforgeeks.org/grep-command-in-unixlinux/)
+Sources: [Week 7 Lab Writeup](https://ucsd-cse15l-w23.github.io/week/week7/)
 
 Lab Session: Wednesday 11:00 - 12:50 @EBU3B_B270
 
-# Lab Report 3
-Welcome to my lab report 3 webpage. In this lab report, we will explore four 
-command-line options for the command `grep`. Each option is followed by two
-examples to demonstrate its use and output. Without further due, let's start
-the lab report!
+# Lab Report 4
+Welcome to my lab report 4 webpage. In this lab report, we will walk through the competition that was held during Week 7's scheduled lab time. Also, I will include a screenshot of each numbered step, with short descriptions follows afterward. Without further due, let's start the lab report!
 
-# Option 1: `-c`
-When dealing with a huge amount of `.txt` files, we may want to know how many
-times a specific pattern -- words, phrases, or even sentences -- appear in our
-files. Therefore, we can do further analysis with our `.txt` file. `grep` has
-`-c` command-line option that enables us to count the number of lines that the 
-pattern appear, which would give us a general sense of how frequent the pattern
-appears in our file(s).
+# Step 1. *Setup* Delete any existing forks of the repository I have on my account.
 
-+ Example 1.
+Before doing anything, I have forked the `lab7` repository during my lab time. Therefore, I have to delete at first. Here is a screenshot of my fork.
+![dir](step1-1.png)
 
-I want to start my lab report with some greetings, so I wanted to 
-know how many lines of my `.txt` files in current working directory contain 
-the word "Hello." I navigated different directories in `\written_2` and happened
-to be at `\written_2\non-fiction\OUP\Berk`, so I want to start from there. 
+To delete the fork, we need to go to the "Settings" in the function bar and scroll all the way down to the "Danger Zone" section, as shown in the screenshot below:
+![delete](step1-2.png)
 
-By inspection, there are four `.txt` files in my current working directory -- 
-`CH4.txt`, `ch1.txt`, `ch2.txt`, and `ch7.txt`. Let's try to see how many "Hello"
-we have in `ch1.txt`! I think there will be some counts because it is the 
-starting chapter and perhaps the characters wants to say "Hello" to each other
-as well! Here is my command and the corresponding output:
-```ruby 
-❯ grep -c "Hello" ch1.txt
-0
-```
+Now, we can click the button "Delete this repository." After following the instruction given by Github, we would successfully delete the repository that we forked.  
 
-+ Example 2.
+# Step 2. *Setup* Fork the repository.
+Since we have deleted the repository that we forked before, we want to fork the repository again to test the code and do modifications as we want. To fork the repository, we go the [lab7 repo](https://ucsd-cse15l-w23.github.io/week/week7/) as shown below, and click the button "Fork" to create a fork.
+![fork](step2.png)
 
-Unfortunately, the characters do not seem to greet each other with the word
-"Hello" as we wanted, and we obtained an output of zero here. What about the
-other `.txt` files in the directory? Let's try to apply the command to all 
-`.txt` files in the directory and see if even a single line of all `.txt` files
-would contain "Hello".
-```ruby
-❯  grep -c "Hello" *.txt
-CH4.txt:2
-ch1.txt:0
-ch2.txt:0
-ch7.txt:0
-```
+After the fork, we are redirected to a similar page, but notice that there is a minor change to the Github webpage, as shown below:
+![change](step2-2.png)
 
-Yes! We finally find out that two lines of `CH4.txt` file contains the word 
-"Hello". Maybe it's because characters meet with each other late in the fourth
-chapter. But the count 2 is all we can get as of now. We want to use other
-command-line options to further explore the context in the file.
+We can now see my Github Username and there is a smaller text saying "forked from `ucsd-cse15l-w23/lab7`," which indicates that this is not a repository we made, but rather one that we forked from another user. This also tells us that we have forked the repository successfully and have completed the second step.
 
-# Option 2: `-l`
-Before we could delve into the contextual information, it seems we are displaying useless information in our output. We do not want to see these 0 counts when the number of files grows huge. We just cannot immediate identify which files would contain the pattern we want. The option `-l` comes in handy as it displays only the file names that contain the phrase we want to search. 
+# Step 3. Start the timer.
+There are many options for this step, such as using a physical stopwatch or using the built-in stopwatch in a phone. However, for the demonstration purpose, I will show how to use an online stopwatch to time for the following steps. We can go to the website [Online Stopwatch](https://www.timeanddate.com/stopwatch/) and use it to time ourselves. The webpage should look like the screenshot below:
+![Stopwatch](step3.png)
 
-+ Example 1.
+# Step 4. Log into `ieng6` remote server.
+Now we have done all the preparations and the stopwatch is running. We need to open our terminal and log into the `ieng6` remote server to do the rest of the work.
 
-We try to see how many files in our working directory (the same as previous command-line option) contain the word "Hello".
-```ruby
-❯ grep -l Hello *.txt
-CH4.txt
-```
-As expected, we are only getting one single output because, as we see in previous examples, only the file `CH4.txt` contains 2 lines of "Hello". We are done with the first exploratory example.
+I typed `ssh cs15lwi23ale@ieng6.ucsd.edu` and then entered my password, and I am logged into the remote server. Note: I still need to type my password perhaps because I did not configure `key-gen` on my own computer. I did not need to type the password after configuration in the lab computer. Here is a screenshot of my terminal showing I am logged into `ieng6`:
+![ieng6](step4.png)
 
-+ Example 2.
+# Step 5. Clone my fork of the repository from my Github account.
+Now we are logged in. We copy the link 
 
-Let's now search and see how many files contain the word "today".
-```ruby
-❯ grep -l today *.txt
-CH4.txt
-ch1.txt
-ch2.txt
-ch7.txt
-```
-It seems "today" appears at least once in each of the file in our working directory. Let's dig deeper into the file with other commands now!
+We can use `git clone` to clone the repository we just forked, with the `ssh` clone URL copied from the screenshot below:
+![sshclone](step5-1.png)
 
+The full command is `git clone git@github.com:hgnzheng/lab7.git`. After several seconds, we can see from the terminal that the clone is successful:
+![clone](step5-2.png)
 
-# Option 3: `-h`
-+ Example 1.
+# Step 6. Run the tests, demonstrating that they fail.
+Before actually running the test, we need to run the command `cd lab7` to change our working directory from home to the directory we just cloned. To run the tests, we need to compile the JUnit tests first and then run the test file. Here, we use the command `Ctrl-R` to search for the compile command we have run during lab, since I believe it is faster than using `<up>` to search one by one. After typing `Ctrl-R *` in terminal, I see the command I want as shown in the screenshot below:
+![step6](step-6.png)
 
-Upon checking the other command-line options for `grep`, I noticed that there is an option `-h` that could display the matched lines. Building on previous commands, let's see the lines that contain the word "Hello" first.
-```ruby
-❯ grep -h Hello *.txt
-Children’s earliest efforts at make-believe also reveal how challenging they ﬁnd the task of detaching thought from reality. Initially, object substitutions are closely tied to the real things they represent. Toddlers between ages 1 1/2 and 2 generally use only realistic-looking objects while pretending—a toy telephone to talk into or a cup to drink from.9 Once, I handed a 21-month-old a small wooden block, put another to my ear, and called her on the phone: “Ring! Ring! Hello, Lynnay!” She responded by throwing down the block and turning to another activity. Yet when given a plastic replica of a push-button phone, Lynnay readily put the receiver to her ear and pretended to converse.
-As children engage in play talk, they not only build their vocabularies but correct one another’s errors, either directly or by demonstrating the acceptable way to speak. In one instance, a kindergartner enacting a telephone conversation said, “Hello, come to my house, please.” Her play partner quickly countered with appropriate telephone greeting behavior: “No, ﬁrst you’ve got to say ‘How are you? What are you doing?’”28
-```
-As we expect, there are two "Hello" appearing in our text -- "Hello, Lynnay!" and "Hello, come to my house, please." 
+After hitting `Enter`, we have successfully compiled the JUnit. Then, we want to run the test file to see the test that is supposed to fail. 
 
-+ Example 2.
+Again, we take advantage of the search command to search faster. This time, I used `Ctrl-R junit <up>` and got the command `java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples`. After hitting `Enter`, we see that the `testMerge2` fails. 
+![fail](step6-2.png)
 
-Let's now try to see how the word "today" appear in the context of the files. Since all four files contain the word, we try to count the number of appearance of the word to avoid long output. 
-```ruby
-❯ grep -c today *.txt
-CH4.txt:2
-ch1.txt:4
-ch2.txt:5
-ch7.txt:3
-```
-The file `CH4.txt` contains the least "Today." Since we have did some analysis with the word "Hello," let's try to see how "today" appears in `ch7.txt` in this example.
+# Step 7. Edit the code file to fix the failing test.
+To identify the bug, we want to open the `ListExamples.java` file. Though I was introduced to `nano` on Wednesday's lecture, I personally prefer to use `vim`. Therefore, I would show how to use `vim` to open and edit the file. 
 
-```ruby
-❯ grep -h today ch7.txt
-In this chapter, I take up dilemmas that today’s parents face in rearing young children. Throughout this book, we have touched on myriad forces that make contemporary parenting highly challenging. These include one-sided, contradictory messages in the parenting-advice literature; career pressures that impinge on parent involvement in children’s lives; abysmally weak American child-care services to assist employed parents in their child-rearing roles; cultural violence and excessive materialism permeating children’s worlds; schools with less than optimal conditions for children’s learning; and impediments to granting children with deﬁcits and disabilities social experiences that maximize their development. 
-I intend these answers to parents’ questions to reﬂect a way of thinking about child rearing, not a set of recipes for dealing with speciﬁc events. When parents are familiar with principles that are grounded in contemporary theory and research on children’s development, they can better deal with the quandaries generated by the changing home, school, and community contexts in which today’s children grow up. Although adverse cultural trends have complicated and threatened good child rearing, parents—as agents of change, buffers against stressful life circumstances, and gatekeepers of learning opportunities—can do much to protect, restore, and reshape children’s experiences.
-The typical preschool child devotes nearly 13 percent of his or her waking hours to watching television, a ﬁgure that rises to 30 percent by school age. Clearly today’s children spend far too many hours in front of the TV set, a circumstance that restricts time available for joint parent–child activities, play, reading, and other worthwhile pursuits. Television is so pervasive an inﬂuence in children’s lives that I discussed it at length in Chapter 2.
-```
-As with the output, "today" is used twice before the word "Children" and once before the word "parents" in the text.
+In the terminal, we type `vim ListExamples.java` and hit `Enter`. Now, `vim` takes over the terminal like the screenshot below:
+![vim](step6-3.png)
 
+We hit `j` key to move our cursor down until the merge method. We easily see that in the last while loop, the incremented index should be `index2` instead of `index1`. We hit `l` key until our cursor is right to `index1` as shown below:
+![edit](step6-4.png)
 
-# Option 4: `-n`
-We can use the command options to find the information we want, but it takes some time to check if the word/pattern we want is indeed there. How can we use command-line options to locate the output faster -- to spend less time on and protect our eyes? Well, it seems the option `-n` would be good because it tells us the line number of that matching! We can go directly to the line and see if the word is there, instead of skimming through the whole text and find nothing at the end.
+Then, we hit `i` to enter insert mode and hit `delete` to delete the number `1` and type `2` to change `index1` to `index2`. After that, we hit `esc` to exit insert mode. By entering the command `:wq`, we save the change and quit the file we are editing, and we are back to the "familiar" terminal again.
 
-Let's try our first example with the word "Hello" again.
+# Step 8. Run the tests, demonstrating that they now succeed.
 
-+ Example 1.
-```ruby
-❯ grep -n Hello CH4.txt
-69:Children’s earliest efforts at make-believe also reveal how challenging they ﬁnd the task of detaching thought from reality. Initially, object substitutions are closely tied to the real things they represent. Toddlers between ages 1 1/2 and 2 generally use only realistic-looking objects while pretending—a toy telephone to talk into or a cup to drink from.9 Once, I handed a 21-month-old a small wooden block, put another to my ear, and called her on the phone: “Ring! Ring! Hello, Lynnay!” She responded by throwing down the block and turning to another activity. Yet when given a plastic replica of a push-button phone, Lynnay readily put the receiver to her ear and pretended to converse.
-151:As children engage in play talk, they not only build their vocabularies but correct one another’s errors, either directly or by demonstrating the acceptable way to speak. In one instance, a kindergartner enacting a telephone conversation said, “Hello, come to my house, please.” Her play partner quickly countered with appropriate telephone greeting behavior: “No, ﬁrst you’ve got to say ‘How are you? What are you doing?’”28
-```
-The line numbers are there. We can quickly open the text and locate the word faster than before. What about the word "today"? Let's see in the second example!
+Same as what we did in step 6, we run both commands again and would see the following result:
+![step8](step8.png)
 
-+ Example 2.
-```ruby
-❯ grep -n today ch7.txt
-5:In this chapter, I take up dilemmas that today’s parents face in rearing young children. Throughout this book, we have touched on myriad forces that make contemporary parenting highly challenging. These include one-sided, contradictory messages in the parenting-advice literature; career pressures that impinge on parent involvement in children’s lives; abysmally weak American child-care services to assist employed parents in their child-rearing roles; cultural violence and excessive materialism permeating children’s worlds; schools with less than optimal conditions for children’s learning; and impediments to granting children with deﬁcits and disabilities social experiences that maximize their development. 
-8:I intend these answers to parents’ questions to reﬂect a way of thinking about child rearing, not a set of recipes for dealing with speciﬁc events. When parents are familiar with principles that are grounded in contemporary theory and research on children’s development, they can better deal with the quandaries generated by the changing home, school, and community contexts in which today’s children grow up. Although adverse cultural trends have complicated and threatened good child rearing, parents—as agents of change, buffers against stressful life circumstances, and gatekeepers of learning opportunities—can do much to protect, restore, and reshape children’s experiences.
-28:The typical preschool child devotes nearly 13 percent of his or her waking hours to watching television, a ﬁgure that rises to 30 percent by school age. Clearly today’s children spend far too many hours in front of the TV set, a circumstance that restricts time available for joint parent–child activities, play, reading, and other worthwhile pursuits. Television is so pervasive an inﬂuence in children’s lives that I discussed it at length in Chapter 2.
-```
-Again, we can use the line numbers to refer back to the text and locate the word(s) of our interest.
+After the change, both two tests succeed and we are good to commit and push our change to the Github.
+# Step 9. Commit and push the resulting change to my Github account.
+Before committing, we need to add the change to Github using command `git add ListExamples.java`. There is nothing showing in the command line. 
+
+After that, we type `git commit -m "changed index number` to commit the change with a message summarizing our change. Here is a screenshot of the terminal after entering the command:
+![step9](step9.png)
+
+Lastly, we want to push our change to the Github by typing `git push`. Then, we can see the terminal as follows and we are done with the push:
+![push](step9-2.png)
+
+And we are done with all the steps.
 
 ---
 
-With all these words and examples, we have explored some command-line options for the command `grep`. 
+I have demonstrated, for each step, the methods and commands I have used to finish the tasks during the lab. 
 
-This is the end of Lab Report 3.\
+This is the end of Lab Report 4.\
 Hargen Zheng
 
