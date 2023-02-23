@@ -37,9 +37,7 @@ I typed `ssh cs15lwi23ale@ieng6.ucsd.edu` and then entered my password, and I am
 ![ieng6](step4.png)
 
 # Step 5. Clone my fork of the repository from my Github account.
-Now we are logged in. We copy the link 
-
-We can use `git clone` to clone the repository we just forked, with the `ssh` clone URL copied from the screenshot below:
+Now we are logged in. We can use `git clone` to clone the repository we just forked, with the `ssh` clone URL copied from the screenshot below:
 ![sshclone](step5-1.png)
 
 The full command is `git clone git@github.com:hgnzheng/lab7.git`. After several seconds, we can see from the terminal that the clone is successful:
