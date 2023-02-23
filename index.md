@@ -33,7 +33,7 @@ There are many options for this step, such as using a physical stopwatch or usin
 # Step 4. Log into `ieng6` remote server.
 Now we have done all the preparations and the stopwatch is running. We need to open our terminal and log into the `ieng6` remote server to do the rest of the work.
 
-I typed `ssh cs15lwi23ale@ieng6.ucsd.edu` and then entered my password, and I am logged into the remote server. Note: I still need to type my password perhaps because I did not configure `key-gen` on my own computer. I did not need to type the password after configuration in the lab computer. Here is a screenshot of my terminal showing I am logged into `ieng6`:
+I typed `ssh cs15lwi23ale@ieng6.ucsd.edu` and then entered my password, and I am logged into the remote server. Note: I still need to type my password perhaps because I did not configure `ssh-keygen` on my own computer. I did not need to type the password after configuration in the lab computer. Here is a screenshot of my terminal showing I am logged into `ieng6`:
 ![ieng6](step4.png)
 
 # Step 5. Clone my fork of the repository from my Github account.
